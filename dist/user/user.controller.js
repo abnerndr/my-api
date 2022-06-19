@@ -17,15 +17,34 @@ let UserController = class UserController {
         this.userService = userService;
     }
     getUser() {
-        return this.userService.getUser();
+        return '';
+    }
+    getUserV2() {
+        return 'redirected successfully';
+    }
+    saveUser() {
+        return 'Created';
     }
 };
 __decorate([
     (0, common_1.Get)(),
+    (0, common_1.Redirect)('http://localhost:3000/user/new', 302),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getUser", null);
+__decorate([
+    (0, common_1.Get)('new'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "getUserV2", null);
+__decorate([
+    (0, common_1.Post)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], UserController.prototype, "saveUser", null);
 UserController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])
