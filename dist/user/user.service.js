@@ -8,9 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
+const users = [
+    {
+        id: 1,
+        name: 'Marcus'
+    },
+    {
+        id: 2,
+        name: 'Kate'
+    }
+];
 let UserService = class UserService {
     getUser() {
         return 'hi user!!';
+    }
+    getUserById(id) {
+        const findUser = users.find((u) => u.id === id);
+        if (!findUser) {
+            throw new common_1.NotFoundException('user does not exist');
+        }
+        return findUser;
     }
 };
 UserService = __decorate([
